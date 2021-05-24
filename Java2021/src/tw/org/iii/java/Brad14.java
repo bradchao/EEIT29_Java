@@ -4,20 +4,26 @@ public class Brad14 {
 
 	public static void main(String[] args) {
 		
-		int a = 74;
+		byte a = 123;	// byte : -128 ~ 127
+		final byte b = 11;
 		
-		switch (a) {
+		switch (a) {	// byte, short, char, int, String, Enum
+			default:
+				System.out.println("XX");
+				break;
 			case 1:
 				System.out.println("A");
 				break;
 			case 10:
-				System.out.println("B");
-				break;
-			case 100:
+				System.out.println("B1");
+				//break;
+			case b-2:
+				System.out.println("B2");
+				//break;
+			case 127:
 				System.out.println("C");
 				break;
-			default:
-				System.out.println("XX");
+
 		}
 		
 		System.out.println("End");
