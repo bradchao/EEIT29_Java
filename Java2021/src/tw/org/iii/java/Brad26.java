@@ -15,6 +15,15 @@ public class Brad26 {
 			System.out.println();
 		}
 		
+		System.out.println("---");
+		
+		// for-each
+		for (int[] brad : a) {
+			for (int v : brad) {
+				System.out.print(v + " ");
+			}
+			System.out.println();
+		}
 		
 	}
 
