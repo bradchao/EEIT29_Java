@@ -28,25 +28,34 @@ public class PokerV3 {
 		}
 		
 		// 洗完之後看一下
-		for (int card : poker ) {
-			System.out.println(card);
-		}
-		System.out.println("----");
-		System.out.println(System.currentTimeMillis() - start);
-		System.out.println("----");
+//		for (int card : poker ) {
+//			System.out.println(card);
+//		}
+//		System.out.println("----");
+//		System.out.println(System.currentTimeMillis() - start);
+//		System.out.println("----");
 
 		// Step2 發牌 => 四個玩家
 		int[][] players = new int[4][13];
 		for (int i=0; i<poker.length; i++) {
+			// 每個發牌程序在此
 			players[i%4][i/4] = poker[i];
+			
 		}
 
-		for (int card : players[1]) {
-			System.out.println(card);
+		// Step3 攤牌 => 理牌
+		String[] suits = {"黑桃","紅心","方塊","梅花"};
+		String[] values = {"A ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 "
+				, "8 ", "9 ", "10", "J ", "Q ", "K "};
+		
+		for (int[] player : players) {
+			
+			for (int card : player) {
+				System.out.print(card + " ");
+			}
+			System.out.println();
 		}
 		
-		
-		// Step3 攤牌 => 理牌
 		
 		
 	}
