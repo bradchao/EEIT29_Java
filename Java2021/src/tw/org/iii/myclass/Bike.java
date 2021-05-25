@@ -2,7 +2,7 @@ package tw.org.iii.myclass;
 
 public class Bike {
 	// 特性 => 屬性 => Field
-	private double speed;	// private => 封裝
+	protected double speed;	// private(類別中) => 封裝 => protected(package, sub class)
 	private String color = "None"; 
 	
 	// 功能 => 方法 => Method
@@ -26,12 +26,10 @@ public class Bike {
 	// Setter
 	public void setColor(String color) {
 		// this => 本類別(Bike)所產生出來的物件實體 this
+		// if (color == "Yellow" || color == "Red" ) => 不一樣
 		if (color.equals("Yellow") || color.equals("Red")) {
 			this.color = color;
 		}
 	}
-	
-	
-	
 	
 }
