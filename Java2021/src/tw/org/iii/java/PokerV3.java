@@ -1,9 +1,10 @@
 package tw.org.iii.java;
 
+import java.util.Arrays;
+
 public class PokerV3 {
 
 	public static void main(String[] args) {
-		//老師請問一下V3第14行的i = nums-1是因為陣列從0開始嗎?然後random 的i+1是讓點數從1開始?
 		long start = System.currentTimeMillis();
 		int nums = 52;
 		int[] poker = new int[nums];
@@ -47,16 +48,13 @@ public class PokerV3 {
 		String[] suits = {"黑桃","紅心","方塊","梅花"};
 		String[] values = {"A ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 "
 				, "8 ", "9 ", "10", "J ", "Q ", "K "};
-		
 		for (int[] player : players) {
-			
+			Arrays.sort(player);
 			for (int card : player) {
-				System.out.print(card + " ");
+				System.out.print(suits[card/13] + values[card%13] + " ");
 			}
 			System.out.println();
 		}
-		
-		
 		
 	}
 
