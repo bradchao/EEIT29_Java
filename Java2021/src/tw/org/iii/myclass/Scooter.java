@@ -21,5 +21,6 @@ public class Scooter extends Bike {
 		speed = (speed < 1 && gear > 0) ? 1 : speed + 3 * gear;
 	}
 	
+	// 老師 請問一下 protected能存取的範圍是要同package 或 繼承的子類別 
 	
 }

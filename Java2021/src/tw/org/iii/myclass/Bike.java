@@ -2,7 +2,7 @@ package tw.org.iii.myclass;
 
 public class Bike {
 	// 特性 => 屬性 => Field
-	protected double speed;	// private(類別中) => 封裝 => protected(package, sub class)
+	protected double speed;	// private(類別中) => 封裝 => protected(package 或 sub class)
 	private String color = "None"; 
 	
 	// 功能 => 方法 => Method

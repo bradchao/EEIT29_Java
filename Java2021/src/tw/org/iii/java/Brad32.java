@@ -16,7 +16,13 @@ public class Brad32 {
 		System.out.println(s1.getColor());
 		System.out.println(s1.getGear());
 		
-		s1.upSpeed(); s1.upSpeed(); s1.upSpeed();
+		s1.setGear(1);
+		s1.upSpeed(); 
+		s1.setGear(2);
+		s1.upSpeed(); 
+		s1.upSpeed();
+		System.out.println(s1.getSpeed());
+		s1.downSpeed();
 		System.out.println(s1.getSpeed());
 	}
 
