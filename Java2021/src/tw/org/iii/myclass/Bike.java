@@ -2,7 +2,7 @@ package tw.org.iii.myclass;
 
 public class Bike {
 	// 特性 => 屬性 => Field
-	public double speed;
+	private double speed;	// private => 封裝
 	
 	// 功能 => 方法 => Method
 	public void upSpeed() {
@@ -11,6 +11,10 @@ public class Bike {
 	
 	public void downSpeed() {
 		speed = speed < 1 ? 0 : speed * 0.7;
+	}
+	
+	public double getSpeed() {
+		return speed;
 	}
 	
 }
