@@ -23,6 +23,13 @@ public class Brad31 {
 			System.out.println(b1.getSpeed());
 		}
 		
+		System.out.println(b1.getColor());
+		b1.setColor("Red");
+		System.out.println(b1.getColor());
+		b1.setColor("Green");
+		System.out.println(b1.getColor());
+		
+		
 	}
 
 }
