@@ -5,7 +5,7 @@ public class Bike {
 	// 進行物件的初始化程序 => 誤解: 產生物件實體
 	public Bike() {
 		// 此處進行物件初始化
-		System.out.println("Bike()");
+		this.color = "Yellow";
 	}
 	
 	// 成員 => member => 物件變數.成員(屬性或是方法)
