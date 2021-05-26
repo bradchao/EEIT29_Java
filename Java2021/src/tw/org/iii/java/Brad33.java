@@ -15,14 +15,13 @@ public class Brad33 extends JFrame {
 		
 		setLayout(new FlowLayout());
 		
-		add(bt1); add(bt2); add(bt3);
+		add(bt3); add(bt1); add(bt2);
 		
 		setSize(640, 480);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		// Exception in thread "main" java.lang.NullPointerException: 
-		// Cannot read field "parent" because "comp" is null
+		
 	}
 
 	public static void main(String[] args) {
