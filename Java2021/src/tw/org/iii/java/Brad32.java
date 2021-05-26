@@ -6,6 +6,7 @@ import tw.org.iii.myclass.Scooter;
 public class Brad32 {
 
 	public static void main(String[] args) {
+		
 		Bike b1 = new Bike();
 		Scooter s1 = new Scooter();
 		

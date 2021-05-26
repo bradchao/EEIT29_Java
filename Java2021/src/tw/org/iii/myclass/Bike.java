@@ -1,6 +1,14 @@
 package tw.org.iii.myclass;
 
 public class Bike {
+	// 建構式/建構子/建構方法 Constructor
+	// 進行物件的初始化程序 => 誤解: 產生物件實體
+	public Bike() {
+		// 此處進行物件初始化
+		System.out.println("Bike()");
+	}
+	
+	// 成員 => member => 物件變數.成員(屬性或是方法)
 	// 特性 => 屬性 => Field
 	protected double speed;	// private(類別中) => 封裝 => protected(package 或 sub class)
 	private String color = "None"; 
