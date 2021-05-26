@@ -19,7 +19,7 @@ public class Car extends Object {
 	
 	@Override
 	public String toString() {
-		return "MyCar:" + tire;
+		return "MyCar" + tire;
 	}
 	
 }

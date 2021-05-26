@@ -44,6 +44,8 @@ public class Brad37 {
 		
 		System.out.println(car1);
 		System.out.println(car1.toString());
+		int a = 10;
+		System.out.println(a);
 		
 		
 		
