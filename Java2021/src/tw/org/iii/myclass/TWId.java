@@ -26,13 +26,11 @@ public class TWId {
 		// 4. 第 3 - 10 碼: 0 - 9
 		
 		boolean isCheckOK = false;
-		String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		if (id.length() == 10) {
-			char c1 = id.charAt(0);
-			int pos = letters.indexOf(c1);
-			if (pos != -1) {
-				isCheckOK = true;
-			}
+		if (id.matches("[A-Z][12][0-9]{8}")) {
+			// 驗證碼程序
+				
+			
+			
 		}
 		
 		return isCheckOK;
