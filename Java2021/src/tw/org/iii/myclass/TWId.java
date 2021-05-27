@@ -1,31 +1,50 @@
 package tw.org.iii.myclass;
 
-public class TWId {
+public class TWId extends Object{
 	private String id;
+	private static final String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
 	
 	public TWId() {
-		
+		this((int)(Math.random()*2) == 0);
 	}
 	public TWId(boolean isMale) {
-		
+		this(isMale, (int)(Math.random()*26));
 	}
 	public TWId(int area) {
-		
+		this((int)(Math.random()*2) == 0 , area);
 	}
 	public TWId(boolean isMale, int area) {
+		// super();
+		String id0 = letters.substring(area, area+1);
+		String id1 = isMale ? "1" : "2";
+		String temp = id0 + id1;
+		// A1 2345678 9
+		for (int i=0; i<7; i++) {
+			temp += (int)(Math.random()*10);
+		}
 		
+		for (int i=0; i<10; i++) {
+			if (checkID(temp + i)) {
+				id = temp + i;
+				break;
+			}
+		}
 	}
 //	public TWId(String id) {
 //		this.id = id;
 //	}
 
+	public String getId() {
+		return id;
+	}
+	
+	
 	public static boolean checkID(String id) {
 		// 1. 長度 = 10
 		// 2. 第一碼 ABC...XYZ
 		// 3. 第二碼 1, 2
 		// 4. 第 3 - 10 碼: 0 - 9
 		boolean isCheckOK = false;
-		String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
 		if (id.matches("[A-Z][12][0-9]{8}")) {
 			// 驗證碼程序
 			char c1 = id.charAt(0);
