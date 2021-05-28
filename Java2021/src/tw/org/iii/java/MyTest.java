@@ -15,6 +15,14 @@ public class MyTest {
 		System.out.println(id2.getId());
 		System.out.println(id3.getId());
 		System.out.println(id4.getId());
+		
+		TWId id5 = TWId.createTWId("A123456787");
+		if (id5 != null) {
+			System.out.println(id5.getId());
+		}else {
+			System.out.println("xxxxxxx");
+		}
+		
 	}
 }
 		
