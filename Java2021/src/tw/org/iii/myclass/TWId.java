@@ -4,31 +4,6 @@ public class TWId extends Object{
 	private String id;
 	private static final String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
 	
-	// 老師this可以在講一次嗎
-	// id1 id2 id3 id4 是代表什麼？
-	// TWId id2 = new TWId(2); 想問一下 TWId(2) 在 TWId內是怎麼運作的
-	
-	// 第一個建構式裡的敘述this ((int)(Math.random()*2) == 0); 
-	// 電腦怎麼知道去對應isMale 或 area 
-	// 假如第一個建構式改寫成this((int)(Math.random()*26) );
-	
-	// 以第一個建構式()呼叫第二個(booelan)第二個又呼叫第四個是嗎
-	
-	// 我昨天試著把static checkID方法裡面的"boolean isCheckOk = false"
-	// 拿到與private String id 同層級宣告成
-	// "private static boolean isCheckOk = false"，
-	// 想請問為何這樣子產生的身分證會無法通過驗證碼測試?
-	
-	// 為什麼是用 TwId(boolean isMale) 執行 26個亂數(區域)，
-	// 而不是public TwId(int area) 執行
-	
-	// 請問一下 那因為現在第二個建構式裡面是布林，
-	// 所以就不能再有另一個建構式是只有布林的嗎? => Yes
-	// 因為這樣會不知道要去呼叫哪個建構式嗎?
-	
-	// 那建立物件的時候不論是用第2或3個建構式建立的時候，
-	// 他們只是接收參數，實際上都用第4個建立嗎
-	
 	public TWId() {
 		// 第一道敘述句
 		// 1. super() => 隱含呼叫
@@ -59,9 +34,18 @@ public class TWId extends Object{
 			}
 		}
 	}
-//	public TWId(String id) {
-//		this.id = id;
-//	}
+	
+	private TWId(String id) {
+		this.id = id;
+	}
+	
+	public static TWId createTWId(String id) {
+		TWId twid = null;
+		if (checkID(id)) {
+			twid = new TWId(id);
+		}
+		return twid;
+	}
 
 	public String getId() {
 		return id;
