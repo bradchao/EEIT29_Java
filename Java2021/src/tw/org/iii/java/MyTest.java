@@ -1,10 +1,12 @@
 package tw.org.iii.java;
 
+import tw.org.iii.myclass.Bike;
 import tw.org.iii.myclass.TWId;
 
 public class MyTest {
 
 	public static void main(String[] args) {
+		Bike b1 = new Bike();
 		TWId id1 = new TWId();
 		TWId id2 = new TWId(true);
 		TWId id3 = new TWId(14);
