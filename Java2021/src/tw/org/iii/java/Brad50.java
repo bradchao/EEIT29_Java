@@ -28,11 +28,31 @@ public class Brad50 extends JFrame implements ActionListener {
 //		b2.addActionListener(this);
 //		b3.addActionListener(this);
 		
-		ButtonListener bListener = new ButtonListener();
-		b1.addActionListener(bListener);
-		b2.addActionListener(bListener);
-		b3.addActionListener(bListener);
+//		ButtonListener bListener = new ButtonListener();
+//		b1.addActionListener(bListener);
+//		b2.addActionListener(bListener);
+//		b3.addActionListener(bListener);
 		
+		b1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("b1");
+			}
+		});
+		
+		b2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("b2");
+			}
+		});
+		
+		b3.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("b3");
+			}
+		});
 		
 		setSize(640, 480);
 		setVisible(true);
