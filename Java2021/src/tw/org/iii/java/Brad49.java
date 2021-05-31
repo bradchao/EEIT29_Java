@@ -25,17 +25,26 @@ public class Brad49 {
 	
 	
 }
-
+// 普通的類別和抽象類別的差異在哪裡啊?
+// 介面和抽象之間的差異在哪裡啊?
+// 所以抽象類別通常會用在什麼時候啊？
+// 相同 => 多型
 // 規格
 // 幾何形狀 => 1. 計算面積 2. 計算周長
 // 	=> 矩形,圓形, 三角形
 interface Shape {	// public
-	double getArea();	// public
-	double getLength();	// public
+	double getArea();	// public abstract
+	double getLength();	// public abstract
 }
 class RecShape implements Shape {
+	// 為什麼是要設定成private double w,h可以麻煩老師再說一次嗎?
 	private double w, h;
-	RecShape(double w, double h){this.w=w; this.h=h;}
+	
+	RecShape(double width, double height){
+		w = width; 
+		h = height;
+	}
+	
 	public double getArea() { 
 		return w*h;
 	}
