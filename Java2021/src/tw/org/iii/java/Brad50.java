@@ -20,6 +20,10 @@ public class Brad50 extends JFrame{
 		setLayout(new FlowLayout());
 		add(b1); add(b2); add(b3);
 		
+		MyListener myListener = new MyListener();
+		b1.addActionListener(myListener);
+		b2.addActionListener(myListener);
+		
 		setSize(640, 480);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -32,10 +36,9 @@ public class Brad50 extends JFrame{
 }
 
 class MyListener implements ActionListener {
-
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("OK1");
 	}
-	
 }
+
+
