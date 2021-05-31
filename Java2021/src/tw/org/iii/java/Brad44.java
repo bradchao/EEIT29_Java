@@ -13,8 +13,6 @@ public class Brad44 {
 	}
 
 }
-// 請問一下 這樣與普通的繼承方式 然後裡面改寫方法差別在哪?
-// brad@brad.tw
 
 abstract class Brad441 {
 	void m1() {System.out.println("m1()");}

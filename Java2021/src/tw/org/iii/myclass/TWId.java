@@ -19,20 +19,34 @@ public class TWId extends Object{
 	}
 	public TWId(boolean isMale, int area) {
 		// super();
-		String id0 = letters.substring(area, area+1);
-		String id1 = isMale ? "1" : "2";
-		String temp = id0 + id1;
-		// A1 2345678 9
-		for (int i=0; i<7; i++) {
-			temp += (int)(Math.random()*10);
+		StringBuffer sb = new StringBuffer(letters.substring(area, area+1));
+		sb.append(isMale ? "1" : "2");
+		for(int i=0; i<7; i++) {
+			sb.append((int)(Math.random()*10));
 		}
 		
+		String temp = sb.toString();
 		for (int i=0; i<10; i++) {
-			if (checkID(temp + i)) {
+			if (checkID(temp +i)) {
 				id = temp + i;
 				break;
 			}
 		}
+		
+//		String id0 = letters.substring(area, area+1);
+//		String id1 = isMale ? "1" : "2";
+//		String temp = id0 + id1;
+//		// A1 2345678 9
+//		for (int i=0; i<7; i++) {
+//			temp += (int)(Math.random()*10);
+//		}
+//		
+//		for (int i=0; i<10; i++) {
+//			if (checkID(temp + i)) {
+//				id = temp + i;
+//				break;
+//			}
+//		}
 	}
 	
 	private TWId(String id) {
