@@ -2,7 +2,11 @@ package tw.org.iii.java;
 
 public class Brad54 {
 	public static void main(String[] args) {
-
+		Bird b1 = new Bird();
+		try {
+			b1.setLegs(2);
+		} catch (Exception e) {
+		}
 	}
 }
 
