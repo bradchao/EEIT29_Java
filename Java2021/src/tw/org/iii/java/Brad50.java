@@ -20,9 +20,9 @@ public class Brad50 extends JFrame implements ActionListener {
 		setLayout(new FlowLayout());
 		add(b1); add(b2); add(b3);
 		
-//		MyListener myListener = new MyListener();
-//		b1.addActionListener(myListener);
-//		b2.addActionListener(myListener);
+		MyListener myListener = new MyListener(this);
+		b1.addActionListener(myListener);
+		b2.addActionListener(myListener);
 		
 //		b1.addActionListener(this);
 //		b2.addActionListener(this);
@@ -70,6 +70,7 @@ public class Brad50 extends JFrame implements ActionListener {
 		}
 	}
 	
+	// 內部類別那為什們要上 private，是不給人亂用的關係嗎
 	private class ButtonListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -83,6 +84,10 @@ public class Brad50 extends JFrame implements ActionListener {
 		}
 	}
 	
+	public JButton getB1() {return b1;}
+	public JButton getB2() {return b2;}
+	public JButton getB3() {return b3;}
+	
 	public static void main(String[] args) {
 		new Brad50();
 	}
@@ -90,11 +95,16 @@ public class Brad50 extends JFrame implements ActionListener {
 }
 
 class MyListener implements ActionListener {
+	private Brad50 brad50;
+	public MyListener(Brad50 brad50) {
+		this.brad50 = brad50;
+	}
+	
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("OK:" + e.getActionCommand());
-//		if (e.getSource() == b1) {
-//			
-//		}
+		if (e.getSource() == brad50.getB1()) {
+			
+		}
 		
 	}
 }
