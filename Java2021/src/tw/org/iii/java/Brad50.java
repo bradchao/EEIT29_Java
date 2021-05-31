@@ -1,6 +1,8 @@
 package tw.org.iii.java;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,4 +29,13 @@ public class Brad50 extends JFrame{
 		new Brad50();
 	}
 
+}
+
+class MyListener implements ActionListener {
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		System.out.println("OK1");
+	}
+	
 }
