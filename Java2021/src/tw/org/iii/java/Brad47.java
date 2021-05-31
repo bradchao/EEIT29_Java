@@ -24,3 +24,8 @@ class Brad472 extends Brad471 {
 class Brad473 extends Brad471 {
 	void m2() {System.out.println("Brad473:m2()");}	
 }
+
+
+// 我在createTWid 明明return twid 卻產生null 為什麼
+// 我輸入id方法是null
+// 
