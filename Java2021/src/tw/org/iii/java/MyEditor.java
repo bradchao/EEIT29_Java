@@ -2,6 +2,8 @@ package tw.org.iii.java;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,8 +17,62 @@ public class MyEditor extends JFrame {
 	public MyEditor() {
 		super("Brad 文字編輯器");
 		
-		setLayout(new BorderLayout());
+		initView();
+		initEvent();
 		
+		setSize(640, 480);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	private void initEvent() {
+		newBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				clearTextArea();
+			}
+		});
+		openBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				openFile();
+			}
+		});
+		saveBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				saveFile();
+			}
+		});
+		saveAsBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				saveAsFile();
+			}
+		});
+		
+	}
+	
+	
+	private void clearTextArea() {
+		System.out.println("A");
+	}
+	
+	private void openFile() {
+		System.out.println("B");
+	}
+	
+	private void saveFile() {
+		System.out.println("C");
+	}
+	
+	private void saveAsFile() {
+		System.out.println("D");
+	}
+	
+	
+	private void initView() {
+		setLayout(new BorderLayout());
 		JPanel topLine = new JPanel(new FlowLayout());
 		openBtn = new JButton("Open");
 		newBtn = new JButton("New");
@@ -26,15 +82,11 @@ public class MyEditor extends JFrame {
 		topLine.add(saveBtn);topLine.add(saveAsBtn);
 		
 		add(topLine, BorderLayout.NORTH);
-		
 		jTextArea = new JTextArea();
 		add(jTextArea, BorderLayout.CENTER);
-		
-		
-		setSize(640, 480);
-		setVisible(true);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
+	
+	
 
 	public static void main(String[] args) {
 		new MyEditor();
