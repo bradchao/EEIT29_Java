@@ -6,10 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -61,6 +63,7 @@ public class MyEditor extends JFrame {
 	
 	private void clearTextArea() {
 		jTextArea.setText("");
+		// file = null;
 	}
 	
 	private void openFile() {
@@ -87,11 +90,23 @@ public class MyEditor extends JFrame {
 	}
 	
 	private void saveFile() {
-		System.out.println("C");
+		if (file == null) {
+			saveAsFile();
+		}else {
+			try {
+				FileWriter out = new FileWriter(file);
+				out.write(jTextArea.getText());
+				out.flush();
+				out.close();
+				JOptionPane.showMessageDialog(this, "Save OK");
+			}catch(Exception e) {
+				System.out.println(e.toString());
+			}
+			
+		}
 	}
 	
 	private void saveAsFile() {
-		System.out.println("D");
 	}
 	
 	

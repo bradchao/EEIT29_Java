@@ -20,6 +20,7 @@ public class Bike {
 	
 	public void downSpeed() {
 		speed = speed < 1 ? 0 : speed * 0.7;
+		System.out.println("OK");
 	}
 	
 	public double getSpeed() {
