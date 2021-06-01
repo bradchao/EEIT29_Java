@@ -4,8 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -55,11 +57,14 @@ public class MyEditor extends JFrame {
 	
 	
 	private void clearTextArea() {
-		System.out.println("A");
+		jTextArea.setText("");
 	}
 	
 	private void openFile() {
-		System.out.println("B");
+		JFileChooser jfc = new JFileChooser();
+		if (jfc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+			File file = jfc.getSelectedFile();
+		}
 	}
 	
 	private void saveFile() {
