@@ -40,4 +40,10 @@ public class Bike {
 		}
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "I am Bike";
+	}
+	
 }

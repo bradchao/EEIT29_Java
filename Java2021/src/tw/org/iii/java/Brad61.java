@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 
 import tw.org.iii.myclass.Bike;
 
-public class Brad60 {
+public class Brad61 {
 
 	public static void main(String[] args) {
 		// big5 => 2bytes => 65536 => 常用字 => 造字
@@ -13,9 +13,9 @@ public class Brad60 {
 		try {
 			FileInputStream fin = new FileInputStream("dir2/iii.txt");
 			
-			int c;
-			while ( (c = fin.read()) != -1 ) {
-				System.out.print((char)c);
+			byte[] buf = new byte[3]; int len;
+			while ( (len = fin.read(buf)) != -1 ) {
+				System.out.print(new String(buf, 0, len));
 			}
 			
 			fin.close();
