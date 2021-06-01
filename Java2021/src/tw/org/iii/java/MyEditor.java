@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileReader;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -15,6 +16,7 @@ import javax.swing.JTextArea;
 public class MyEditor extends JFrame {
 	private JButton openBtn, newBtn, saveBtn, saveAsBtn;
 	private JTextArea jTextArea;
+	private File file; 
 	
 	public MyEditor() {
 		super("Brad 文字編輯器");
@@ -64,7 +66,22 @@ public class MyEditor extends JFrame {
 		JFileChooser jfc = new JFileChooser();
 		int result = jfc.showOpenDialog(this); 
 		if (result == JFileChooser.APPROVE_OPTION) {
-			File file = jfc.getSelectedFile();
+			file = jfc.getSelectedFile();
+			readFile();
+		}
+	}
+	
+	private void readFile() {
+		char[] buf = new char[(int)file.length()];
+		try {
+			FileReader reader = new FileReader(file);
+			int len = reader.read(buf);
+			reader.close();
+			
+			String content = new String(buf,0,len);
+			jTextArea.setText(content);
+		}catch(Exception e) {
+			System.out.println(e.toString());
 		}
 	}
 	
