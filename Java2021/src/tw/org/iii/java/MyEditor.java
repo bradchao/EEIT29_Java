@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class MyEditor extends JFrame {
@@ -76,7 +77,7 @@ public class MyEditor extends JFrame {
 		try {
 			FileReader reader = new FileReader(file);
 			int len = reader.read(buf);
-			reader.close();
+			reader.close();	// 請問一下 reader.close() 之後為什麼content還是能取到值?
 			
 			String content = new String(buf,0,len);
 			jTextArea.setText(content);
@@ -106,7 +107,8 @@ public class MyEditor extends JFrame {
 		
 		add(topLine, BorderLayout.NORTH);
 		jTextArea = new JTextArea();
-		add(jTextArea, BorderLayout.CENTER);
+		JScrollPane jsp = new JScrollPane(jTextArea);
+		add(jsp, BorderLayout.CENTER);
 	}
 	
 	
