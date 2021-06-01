@@ -62,7 +62,8 @@ public class MyEditor extends JFrame {
 	
 	private void openFile() {
 		JFileChooser jfc = new JFileChooser();
-		if (jfc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+		int result = jfc.showOpenDialog(this); 
+		if (result == JFileChooser.APPROVE_OPTION) {
 			File file = jfc.getSelectedFile();
 		}
 	}
