@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 public class Brad70 {
-
+	// 想請教一下, 除了觀察上下程式列, 如何快速辨識建構式跟方法的差異?
 	public static void main(String[] args) {
 		// 資料結構
 		// Array => index(zero-base) => value
