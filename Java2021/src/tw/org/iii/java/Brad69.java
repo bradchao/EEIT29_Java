@@ -27,6 +27,8 @@ public class Brad69 {
 			Student s1 = (Student)obj;
 			System.out.println(s1.score());
 			System.out.println(s1.avg());
+			System.out.println("----");
+			System.out.println(s1.getScooterSpeed());
 			
 			
 		} catch (Exception e) {

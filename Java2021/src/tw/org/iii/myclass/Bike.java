@@ -1,6 +1,8 @@
 package tw.org.iii.myclass;
 
-public class Bike {
+import java.io.Serializable;
+
+public class Bike  implements Serializable{
 	// 建構式/建構子/建構方法 Constructor
 	// 進行物件的初始化程序 => 誤解: 產生物件實體
 	public Bike() {

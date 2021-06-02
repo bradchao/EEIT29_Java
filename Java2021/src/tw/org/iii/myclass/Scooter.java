@@ -1,5 +1,7 @@
 package tw.org.iii.myclass;
 
+import java.io.Serializable;
+
 public class Scooter extends Bike {	
 	// 表現出 繼承 特徵, Bike 為 Scooter 的父類別 super class
 	// Scooter 為 Bike 的子類別 sub class
