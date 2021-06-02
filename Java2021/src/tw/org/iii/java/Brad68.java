@@ -29,6 +29,7 @@ public class Brad68 {
 	}
 
 }
+// JVM
 class Student implements Serializable {
 	private int ch, eng, math;
 	private Scooter scooter;
