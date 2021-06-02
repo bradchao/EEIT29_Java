@@ -130,6 +130,7 @@ public class MyEditor extends JFrame {
 		jTextArea = new JTextArea();
 		JScrollPane jsp = new JScrollPane(jTextArea);
 		add(jsp, BorderLayout.CENTER);
+		
 	}
 	
 	
