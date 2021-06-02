@@ -107,6 +107,12 @@ public class MyEditor extends JFrame {
 	}
 	
 	private void saveAsFile() {
+		JFileChooser jfc= new JFileChooser();
+		int result = jfc.showSaveDialog(this); 
+		if (result == JFileChooser.APPROVE_OPTION) {
+			file = jfc.getSelectedFile();
+			saveFile();
+		}
 	}
 	
 	
