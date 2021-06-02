@@ -44,11 +44,12 @@ public class MyDrawer extends JPanel {
 			super.mouseDragged(e);
 			//System.out.println(e.getX() + "," + e.getY());
 			
+			// 點, x, y => x => ?, y => ?
 			HashMap<String, Integer> point = new HashMap<>();
 			point.put("x", e.getX()); point.put("y", e.getY());
 			
 			line.add(point);
-			invalidate();
+			repaint();
 		}
 	}
 	
