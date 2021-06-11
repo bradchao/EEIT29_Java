@@ -12,13 +12,15 @@ import javax.swing.DebugGraphics;
 import javax.swing.JPanel;
 
 public class MyDrawer extends JPanel {
-	private LinkedList<HashMap<String, Integer>> line = new LinkedList<>();
+	private LinkedList<LinkedList<HashMap<String, Integer>>> lines = new LinkedList<>();
 	
 	public MyDrawer() {
+		// super();
 		setBackground(Color.YELLOW);
 		
 		MyMouseListener myMouseListener = new MyMouseListener();
 		addMouseMotionListener(myMouseListener);
+		addMouseListener(myMouseListener);
 		
 	}
 
@@ -30,11 +32,13 @@ public class MyDrawer extends JPanel {
 		//Graphics2D g2d = (Graphics2D)g;
 		
 		g.setColor(Color.BLUE);
-		for (int i=1; i<line.size(); i++) {
-			HashMap<String, Integer> p0 = line.get(i-1);
-			HashMap<String, Integer> p1 = line.get(i);
-			System.out.println("" + p0.get("x") + "," +p0.get("y") + "," + p1.get("x") + "," + p1.get("y"));
-			g.drawLine(p0.get("x"), p0.get("y"), p1.get("x"), p1.get("y"));
+		for (LinkedList<HashMap<String, Integer>> line : lines) {
+			for (int i=1; i<line.size(); i++) {
+				HashMap<String, Integer> p0 = line.get(i-1);
+				HashMap<String, Integer> p1 = line.get(i);
+				System.out.println("" + p0.get("x") + "," +p0.get("y") + "," + p1.get("x") + "," + p1.get("y"));
+				g.drawLine(p0.get("x"), p0.get("y"), p1.get("x"), p1.get("y"));
+			}			
 		}
 	}
 	
@@ -42,15 +46,34 @@ public class MyDrawer extends JPanel {
 		@Override
 		public void mouseDragged(MouseEvent e) {
 			super.mouseDragged(e);
-			//System.out.println(e.getX() + "," + e.getY());
+
+			System.out.println("mouseDragged");
 			
-			// 點, x, y => x => ?, y => ?
 			HashMap<String, Integer> point = new HashMap<>();
 			point.put("x", e.getX()); point.put("y", e.getY());
 			
-			line.add(point);
+			lines.getLast().add(point);
 			repaint();
 		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			super.mousePressed(e);
+			
+			System.out.println("mousePressed");
+			
+			LinkedList<HashMap<String, Integer>> line = new LinkedList<>();
+			HashMap<String, Integer> point = new HashMap<>();
+			point.put("x", e.getX()); point.put("y", e.getY());
+			line.add(point);
+			
+			lines.add(line);
+			repaint();
+		}
+		
+		
+		
+		
 	}
 	
 }
