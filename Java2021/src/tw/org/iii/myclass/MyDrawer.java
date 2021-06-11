@@ -5,8 +5,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -98,13 +100,25 @@ public class MyDrawer extends JPanel {
 
 	public void saveObject() throws IOException {
 		ObjectOutputStream oout = 
-			new ObjectOutputStream(new FileOutputStream("dir1/mysig.brad"));
+			new ObjectOutputStream(new FileOutputStream("dir1/mysign.brad"));
 		oout.writeObject(lines);
 		oout.flush();
 		oout.close();
 	}
 	
-	public void loadObject() {
+	public void loadObject() throws Exception {
+		ObjectInputStream oin = 
+			new ObjectInputStream(new FileInputStream("dir1/mysign.brad"));
+		Object obj = oin.readObject();
+		if (obj instanceof LinkedList) {
+			lines = (LinkedList<LinkedList<HashMap<String, Integer>>>)obj;
+			recycler.clear();
+			repaint();
+		}else {
+			throw new Exception("............");
+		}
+		
+		
 		
 	}
 	

@@ -117,7 +117,11 @@ public class MySign extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				try {
+					myDrawer.loadObject();
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, e1.toString());
+				}
 			}
 		});
 	}
