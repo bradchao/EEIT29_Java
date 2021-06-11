@@ -2,6 +2,8 @@ package tw.org.iii.java;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,6 +19,7 @@ public class MySign extends JFrame {
 		super("簽名app");
 		
 		initView();
+		initEvent();
 		
 		setSize(640, 480);
 		setVisible(true);
@@ -34,6 +37,15 @@ public class MySign extends JFrame {
 		myDrawer = new MyDrawer();
 		add(myDrawer, BorderLayout.CENTER);
 		
+	}
+	
+	private void initEvent() {
+		clear.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				myDrawer.clear();
+			}
+		});
 	}
 
 	public static void main(String[] args) {

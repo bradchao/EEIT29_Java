@@ -36,7 +36,6 @@ public class MyDrawer extends JPanel {
 			for (int i=1; i<line.size(); i++) {
 				HashMap<String, Integer> p0 = line.get(i-1);
 				HashMap<String, Integer> p1 = line.get(i);
-				System.out.println("" + p0.get("x") + "," +p0.get("y") + "," + p1.get("x") + "," + p1.get("y"));
 				g.drawLine(p0.get("x"), p0.get("y"), p1.get("x"), p1.get("y"));
 			}			
 		}
@@ -47,8 +46,6 @@ public class MyDrawer extends JPanel {
 		public void mouseDragged(MouseEvent e) {
 			super.mouseDragged(e);
 
-			System.out.println("mouseDragged");
-			
 			HashMap<String, Integer> point = new HashMap<>();
 			point.put("x", e.getX()); point.put("y", e.getY());
 			
@@ -59,8 +56,6 @@ public class MyDrawer extends JPanel {
 		@Override
 		public void mousePressed(MouseEvent e) {
 			super.mousePressed(e);
-			
-			System.out.println("mousePressed");
 			
 			LinkedList<HashMap<String, Integer>> line = new LinkedList<>();
 			HashMap<String, Integer> point = new HashMap<>();
@@ -76,4 +71,10 @@ public class MyDrawer extends JPanel {
 		
 	}
 	
+	public void clear() {
+		lines.clear();
+		repaint();
+	}
+
+
 }
