@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 public class MyDrawer extends JPanel {
 	private LinkedList<LinkedList<HashMap<String, Integer>>> lines = new LinkedList<>();
+	private LinkedList<LinkedList<HashMap<String, Integer>>> recycler = new LinkedList<>();
 	
 	public MyDrawer() {
 		// super();
@@ -57,6 +58,8 @@ public class MyDrawer extends JPanel {
 		public void mousePressed(MouseEvent e) {
 			super.mousePressed(e);
 			
+			recycler.clear();
+			
 			LinkedList<HashMap<String, Integer>> line = new LinkedList<>();
 			HashMap<String, Integer> point = new HashMap<>();
 			point.put("x", e.getX()); point.put("y", e.getY());
@@ -74,6 +77,20 @@ public class MyDrawer extends JPanel {
 	public void clear() {
 		lines.clear();
 		repaint();
+	}
+	
+	public void undo() {
+		if (lines.size()>0) {
+			recycler.add(lines.removeLast()) ;
+			repaint();
+		}
+	}
+	
+	public void redo() {
+		if (recycler.size() > 0) {
+			lines.add(recycler.removeLast());
+			repaint();
+		}
 	}
 
 
