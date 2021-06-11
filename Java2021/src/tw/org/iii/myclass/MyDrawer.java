@@ -5,6 +5,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -93,5 +96,18 @@ public class MyDrawer extends JPanel {
 		}
 	}
 
+	public void saveObject() throws IOException {
+		ObjectOutputStream oout = 
+			new ObjectOutputStream(new FileOutputStream("dir1/mysig.brad"));
+		oout.writeObject(lines);
+		oout.flush();
+		oout.close();
+	}
+	
+	public void loadObject() {
+		
+	}
+	
+	
 
 }

@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import tw.org.iii.myclass.MyDrawer;
 
 public class MySign extends JFrame {
-	private JButton clear, undo, redo, save; 
+	private JButton clear, undo, redo, save, saveObj, loadObj; 
 	private MyDrawer myDrawer;
 	
 	public MySign() {
@@ -46,7 +46,13 @@ public class MySign extends JFrame {
 		
 		save = new JButton("Save");
 		topLine.add(save);
-		
+
+		saveObj = new JButton("Save Object");
+		topLine.add(saveObj);
+
+		loadObj = new JButton("Load Object");
+		topLine.add(loadObj);
+
 		add(topLine, BorderLayout.NORTH);
 		
 		myDrawer = new MyDrawer();
@@ -91,6 +97,27 @@ public class MySign extends JFrame {
 				}catch(Exception e2) {
 					System.out.println(e2.toString());
 				}
+			}
+		});
+		
+		saveObj.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					myDrawer.saveObject();
+					JOptionPane.showMessageDialog(null, "Save Object Success");
+				}catch (Exception ee) {
+					JOptionPane.showMessageDialog(null, "Save Object Failure");
+				}
+			}
+		});
+		
+		loadObj.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 	}
