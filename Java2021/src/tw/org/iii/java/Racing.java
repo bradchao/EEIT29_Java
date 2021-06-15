@@ -27,16 +27,36 @@ public class Racing extends JFrame {
 		go.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				go();
 			}
 		});
 		
-		setSize(800, 480);
+		setSize(1280, 480);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 	}
+	
+	private Car[] cars = new Car[8];
+	private void go() {
+		for (int i=0; i<cars.length; i++ ) {
+			cars[i] = new Car(i);
+			cars[i].start();
+		}
+	}
 
+	private class Car extends Thread {
+		private int lane;
+		Car(int lane){ this.lane = lane;}
+		@Override
+		public void run() {
+			for (int i=0; i<100; i++) {
+				lanes[lane].setText(lanes[lane].getText() + ">");
+			}
+		}
+	}
+	
+	
 	public static void main(String[] args) {
 		new Racing();
 	}
