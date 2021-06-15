@@ -38,7 +38,10 @@ public class Racing extends JFrame {
 	}
 	
 	private Car[] cars = new Car[8];
+	private int rank;
+	
 	private void go() {
+		rank = 0;
 		for (int i=0; i<cars.length; i++ ) {
 			lanes[i].setText((i+1) + ". ");
 			cars[i] = new Car(i);
@@ -53,14 +56,24 @@ public class Racing extends JFrame {
 		public void run() {
 			for (int i=0; i<100; i++) {
 				lanes[lane].setText(lanes[lane].getText() + ">");
+				if (i==99) {
+					lanes[lane].setText(lanes[lane].getText() + ++rank);
+					stopRound();
+				}
 				try {
 					Thread.sleep(10 + (int)(Math.random()*100));
 				} catch (InterruptedException e) {
+					break;
 				}
 			}
 		}
 	}
 	
+	private void stopRound() {
+		for (int i=0; i<cars.length; i++) {
+			cars[i].interrupt();
+		}
+	}
 	
 	public static void main(String[] args) {
 		new Racing();
