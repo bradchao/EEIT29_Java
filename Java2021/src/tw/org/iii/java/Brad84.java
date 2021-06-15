@@ -9,25 +9,25 @@ import java.net.URLConnection;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class Brad81 {
+public class Brad84 {
 
 	public static void main(String[] args) {
 		// 想問http (明碼) 跟 https 差在哪 => s => SSL
 	
 		try {
-			URL url = new URL("https://www.iii.org.tw");
+			URL url = new URL("https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx");
 			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 			conn.connect();
 			
 			InputStreamReader ir = new InputStreamReader(conn.getInputStream());
 			BufferedReader reader = new BufferedReader(ir);
-			String line;
+			String line; StringBuffer sb = new StringBuffer();
 			while ( (line = reader.readLine()) != null ) {
-				System.out.println(line);
+				sb.append(line);
 			}
 			
 			reader.close();
-			System.out.println("OK");
+			System.out.println(sb.toString());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
