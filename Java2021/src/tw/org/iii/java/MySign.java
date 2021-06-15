@@ -14,11 +14,13 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import tw.org.iii.myclass.MyClock;
 import tw.org.iii.myclass.MyDrawer;
 
 public class MySign extends JFrame {
 	private JButton clear, undo, redo, save, saveObj, loadObj; 
 	private MyDrawer myDrawer;
+	private MyClock myClock;
 	
 	public MySign() {
 		super("簽名app");
@@ -52,6 +54,9 @@ public class MySign extends JFrame {
 
 		loadObj = new JButton("Load Object");
 		topLine.add(loadObj);
+		
+		myClock = new MyClock();
+		topLine.add(myClock);
 
 		add(topLine, BorderLayout.NORTH);
 		
