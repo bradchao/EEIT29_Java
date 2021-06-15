@@ -30,7 +30,7 @@ public class Brad80 extends JFrame {
 	}
 	
 	private class MyPanel extends JPanel {
-		private BufferedImage ballImg = null;
+		private BufferedImage[] ballImgs = new BufferedImage[4];
 		private Timer timer;
 		private int viewW, viewH, ballW, ballH;
 		private LinkedList<Ball> balls = new LinkedList<>();
@@ -38,9 +38,12 @@ public class Brad80 extends JFrame {
 		public MyPanel() {
 			
 			try {
-				ballImg = ImageIO.read(new File("dir1/ball3.png"));
-				ballW = ballImg.getWidth();
-				ballH = ballImg.getHeight();
+				ballImgs[0] = ImageIO.read(new File("dir1/ball0.png"));
+				ballImgs[1] = ImageIO.read(new File("dir1/ball1.png"));
+				ballImgs[2] = ImageIO.read(new File("dir1/ball2.png"));
+				ballImgs[3] = ImageIO.read(new File("dir1/ball3.png"));
+				ballW = ballImgs[0].getWidth();
+				ballH = ballImgs[0].getHeight();
 			}catch(Exception e) {
 				
 			}
@@ -51,15 +54,15 @@ public class Brad80 extends JFrame {
 			addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					createNewBall(e.getX(), e.getY());
+					createNewBall(e.getX() - ballW/2, e.getY() - ballH/2);
 				}
 			});
 		}
 		
 		private void createNewBall(int x, int y) {
-			Ball ball = new Ball(x, y);
+			Ball ball = new Ball(x, y, (int)(Math.random()*4));
 			balls.add(ball);
-			timer.schedule(ball, 1000, 30);
+			timer.schedule(ball, 0, 30);
 		}
 		
 		@Override
@@ -69,11 +72,9 @@ public class Brad80 extends JFrame {
 			viewW = getWidth();
 			viewH = getHeight();
 
-			
-			if (ballImg == null) return;
-			
 			for(Ball ball : balls) {
-				g.drawImage(ballImg, ball.getX(), ball.getY(),  null);
+				if (ballImgs[ball.getImg()] == null) continue;
+				g.drawImage(ballImgs[ball.getImg()], ball.getX(), ball.getY(),  null);
 			}
 			
 		}
@@ -86,10 +87,10 @@ public class Brad80 extends JFrame {
 		}
 		
 		private class Ball extends TimerTask {
-			private int x, y, dx, dy;
+			private int x, y, dx, dy, img;
 			
-			Ball(int x, int y){
-				this.x = x; this.y = y;
+			Ball(int x, int y, int img){
+				this.x = x; this.y = y; this.img = img;
 				dx = dy = 8;
 			}
 			
@@ -107,6 +108,7 @@ public class Brad80 extends JFrame {
 			
 			int getX() {return x;}
 			int getY() {return y;}
+			int getImg() {return img;}
 		}
 		
 	}
