@@ -1,5 +1,6 @@
 package tw.org.iii.myclass;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -18,11 +19,9 @@ public class MyClock extends JLabel {
 	private class MyTask extends TimerTask {
 		@Override
 		public void run() {
+			SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 			Calendar now = Calendar.getInstance();
-			int hh = now.get(Calendar.HOUR_OF_DAY);
-			int mm = now.get(Calendar.MINUTE);
-			int ss = now.get(Calendar.SECOND);
-			setText(hh + ":" + mm + ":" + ss);
+			setText(sdf.format(now.getTime()));
 			
 		}
 	}

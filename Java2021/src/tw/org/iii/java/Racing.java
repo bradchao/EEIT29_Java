@@ -1,5 +1,6 @@
 package tw.org.iii.java;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,6 +8,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import tw.org.iii.myclass.MyClock;
 
 public class Racing extends JFrame {
 	private JButton go;
@@ -16,8 +20,13 @@ public class Racing extends JFrame {
 		super("Racing");
 		
 		setLayout(new GridLayout(9, 1));
+		JPanel top = new JPanel(new BorderLayout());
 		go = new JButton("Go!");
-		add(go);
+		top.add(go, BorderLayout.CENTER);
+		MyClock myClock = new MyClock();
+		top.add(myClock, BorderLayout.EAST); 
+		
+		add(top);
 		
 		for (int i=0; i<lanes.length; i++) {
 			lanes[i] = new JLabel((i+1) + ". ");
