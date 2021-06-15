@@ -49,8 +49,6 @@ public class Racing extends JFrame {
 		}
 	}
 
-	// 有stopround   重複GO的話 排名會一直++rank
-	// 我寫的跟老師寫的對比過了， 但go之後每台車跑得還是一樣快，想問問題有可能出現在哪邊
 	private class Car extends Thread {
 		private int lane;
 		Car(int lane){ this.lane = lane;}
