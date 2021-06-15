@@ -9,6 +9,9 @@ import java.net.URLConnection;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class Brad84 {
 
 	public static void main(String[] args) {
@@ -25,14 +28,32 @@ public class Brad84 {
 			while ( (line = reader.readLine()) != null ) {
 				sb.append(line);
 			}
-			
 			reader.close();
-			System.out.println(sb.toString());
+			
+			parseJSON(sb.toString());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	static void parseJSON(String json) {
+		try {
+			JSONArray root = new JSONArray(json);
+			//System.out.println(root.length());
+			
+			for (int i=0; i<root.length(); i++) {
+				JSONObject row = root.getJSONObject(i);
+				String name = row.getString("Name");
+				String addr = row.getString("Address");
+				System.out.println(name +":" + addr);
+			}
+			
+			
+		}catch(Exception e) {
+			System.out.println(e.toString());
+		}
 	}
 
 }
