@@ -58,7 +58,7 @@ public class Brad80 extends JFrame {
 				}
 			});
 		}
-		
+		// 想問一下 為什麼球點太多會當機
 		private void createNewBall(int x, int y) {
 			Ball ball = new Ball(x, y, (int)(Math.random()*4));
 			balls.add(ball);
