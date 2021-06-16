@@ -18,7 +18,9 @@ public class Brad84 {
 		// 想問http (明碼) 跟 https 差在哪 => s => SSL
 	
 		try {
-			URL url = new URL("https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx");
+//			URL url = new URL("https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx");
+			URL url = new URL("https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvLocalFeature.aspx");
+			
 			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 			conn.connect();
 			
@@ -39,6 +41,8 @@ public class Brad84 {
 	}
 	
 	static void parseJSON(String json) {
+		// [ , , , ]
+		// { "key":value, , , }
 		try {
 			JSONArray root = new JSONArray(json);
 			//System.out.println(root.length());
@@ -46,7 +50,7 @@ public class Brad84 {
 			for (int i=0; i<root.length(); i++) {
 				JSONObject row = root.getJSONObject(i);
 				String name = row.getString("Name");
-				String addr = row.getString("Address");
+				String addr = row.getString("City");
 				System.out.println(name +":" + addr);
 			}
 			
