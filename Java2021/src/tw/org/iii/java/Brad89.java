@@ -65,7 +65,8 @@ public class Brad89 {
 		}
 
 	}
-	
+	// 過去資料被刪除後 ID產生都是新的
+	// 有方法可以將ID重新編列為1開始嗎
 	
 	static void parseJSON(String json) {
 		try {
