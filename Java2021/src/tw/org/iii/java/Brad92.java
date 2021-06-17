@@ -2,6 +2,8 @@ package tw.org.iii.java;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -11,7 +13,9 @@ import tw.org.iii.myclass.Member;
 
 public class Brad92 {
 	static Member member;
-
+	static final String sqlLogin = "SELECT * FROM member WHERE account = ? AND passwd = ?";
+	static PreparedStatement stmtLogin;
+	
 	public static void main(String[] args) {
 		String account = JOptionPane.showInputDialog("Account");
 		String passwd = JOptionPane.showInputDialog("Password");
@@ -22,6 +26,8 @@ public class Brad92 {
 		prop.put("password", "root");
 		
 		try (Connection conn = DriverManager.getConnection(url, prop)) {
+			stmtLogin = conn.prepareStatement(sqlLogin);
+			
 			if ( (member = login(account, passwd)) != null) {
 				JOptionPane.showMessageDialog(null, String.format("Welcome! %s", member.getRealname()));
 			}else {
@@ -34,7 +40,19 @@ public class Brad92 {
 	
 	
 	static Member login(String account, String passwd) throws SQLException {
-		return null;
+		Member member = null;
+		
+		stmtLogin.setString(1, account);
+		stmtLogin.setString(2, passwd);
+		ResultSet rs = stmtLogin.executeQuery();
+		if (rs.next()) {
+			member = new Member(rs.getInt("id")
+					,rs.getString("account")
+					,rs.getString("passwd")
+					,rs.getString("realname"));
+		}
+		
+		return member;
 	}
 
 }
