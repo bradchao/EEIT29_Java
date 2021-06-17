@@ -9,6 +9,15 @@ import java.util.Properties;
 import org.json.JSONStringer;
 import org.json.JSONWriter;
 
+// 老師，第三方套件提供的方法
+// 可以像官方的API一樣，查他的內容和說明嗎
+// JavaDoc
+
+/**
+ * 
+ * @author brad
+ *
+ */
 public class Brad90 {
 
 	public static void main(String[] args) {

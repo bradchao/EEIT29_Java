@@ -37,9 +37,6 @@ public class Brad89 {
 			System.out.println(e.toString());
 		}
 		
-		
-		
-		
 	}
 
 	
