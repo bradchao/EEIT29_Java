@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.json.JSONStringer;
+import org.json.JSONWriter;
+
 public class Brad90 {
 
 	public static void main(String[] args) {
@@ -24,6 +27,9 @@ public class Brad90 {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 
+			JSONStringer js = new JSONStringer();
+			JSONWriter jw = js.array();
+			
 			System.out.println(String.format("第%d頁", page));
 			while (rs.next()) {
 				String id = rs.getString("id");
@@ -31,9 +37,19 @@ public class Brad90 {
 				String city = rs.getString("city");
 				String town = rs.getString("town");
 				System.out.println(id +":" + name +":" + city + town);
+				
+				jw.object();
+				jw.key("id").value(id);
+				jw.key("name").value(name);
+				jw.key("city").value(city);
+				jw.key("town").value(town);
+				jw.endObject();
 			}
 			
 			rs.close();
+			
+			jw.endArray();
+			System.out.println(jw.toString());
 			
 			
 		}catch(Exception e) {
